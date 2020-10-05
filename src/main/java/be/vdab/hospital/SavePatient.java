@@ -11,7 +11,7 @@ public class SavePatient {
         EntityManager em = null;
 
         try {
-            emf = Persistence.createEntityManagerFactory("create");
+            emf = Persistence.createEntityManagerFactory("dropCreate");
             em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
             tx.begin();

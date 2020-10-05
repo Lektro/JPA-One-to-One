@@ -16,9 +16,9 @@ public class DeletePatient {
 
 
             Patient patient = em.find(Patient.class, 1L);
-            em.getTransaction().begin();
+            tx.begin();
             em.remove(patient);
-            em.getTransaction().commit();
+            tx.commit();
             System.out.println("Patient Deleted");
 
         } finally {

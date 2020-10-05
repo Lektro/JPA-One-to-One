@@ -5,10 +5,14 @@ import javax.persistence.*;
 @Entity
 public class MedicalFile {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private float height;
     private float weight;
 
+    @OneToOne(mappedBy = "medicalFile",cascade = CascadeType.REFRESH)
+    private Patient patient;
 
     public Patient getPatient() {
         return patient;
@@ -18,9 +22,6 @@ public class MedicalFile {
         this.patient = patient;
     }
 
-    private Patient patient;
-
-    @Column(name="HEIGHT")
     public float getHeight() {
         return height;
     }
@@ -29,7 +30,6 @@ public class MedicalFile {
         this.height = height;
     }
 
-    @Column(name="WEIGHT")
     public float getWeight() {
         return weight;
     }
@@ -38,8 +38,6 @@ public class MedicalFile {
         this.weight = weight;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }

@@ -17,14 +17,19 @@ public class SavePatient {
             tx.begin();
 
             Patient patient = new Patient();
-            MedicalFile medicalFile = new MedicalFile();
+
             patient.setName("Kevin van der Kruk");
+
+            MedicalFile medicalFile = new MedicalFile();
+
             patient.addMedicalFile(medicalFile);
-            medicalFile.setHeight(172);
-            medicalFile.setWeight(59);
+            medicalFile.setHeight(1.72F);
+            medicalFile.setWeight(59.0F);
             medicalFile.setPatient(patient);
-            em.persist(patient);
+
             em.persist(medicalFile);
+            em.persist(patient);
+
             tx.commit();
             System.out.println("Patient Saved");
 

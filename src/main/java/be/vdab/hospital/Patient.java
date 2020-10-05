@@ -5,22 +5,22 @@ import javax.persistence.*;
 @Entity
 public class Patient {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+
+    @OneToOne
     private MedicalFile medicalFile;
 
-    @OneToOne(mappedBy = "medicalFile")
     public MedicalFile medicalFile() {
         return medicalFile();
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
 
-    @Column(name = "NAME")
     public String getName() {
         return name;
     }

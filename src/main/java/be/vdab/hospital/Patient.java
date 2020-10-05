@@ -13,8 +13,16 @@ public class Patient {
     @OneToOne
     private MedicalFile medicalFile;
 
-    public MedicalFile medicalFile() {
-        return medicalFile();
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public MedicalFile getMedicalFile() {
+        return medicalFile;
+    }
+
+    public void setMedicalFile(MedicalFile medicalFile) {
+        this.medicalFile = medicalFile;
     }
 
     public long getId() {
@@ -36,7 +44,6 @@ public class Patient {
 
     public void removeMedicalFile() {
         if (medicalFile != null) {
-            medicalFile().setPatient(null);
             medicalFile = null;
         }
     }

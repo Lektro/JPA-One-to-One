@@ -20,11 +20,12 @@ public class GetPatient {
             System.out.println("Patient ID: " + p.getId());
             System.out.println("Patient Name: " + p.getName());
 
-            MedicalFile m  = em.find(MedicalFile.class, 1L);
             System.out.println("Accessing medical file associated with this Patient");
-            System.out.println("Patient Height: " + m.getHeight());
-            System.out.println("Patient Weight: " + m.getWeight());
-
+            System.out.println("Patient Height: " + p.getMedicalFile().getHeight());
+            System.out.println("Patient Weight: " + p.getMedicalFile().getWeight());
+            p.getMedicalFile().setPatient(null);
+            p.setMedicalFile(null);
+            //em.persist(p);
             tx.commit();
         } finally {
             if (em != null) em.close();

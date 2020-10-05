@@ -9,7 +9,7 @@ public class MedicalFile {
     private float height;
     private float weight;
 
-    @OneToOne(mappedBy = "medicalFile")
+
     public Patient getPatient() {
         return patient;
     }
@@ -40,7 +40,6 @@ public class MedicalFile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
     public long getId() {
         return id;
     }

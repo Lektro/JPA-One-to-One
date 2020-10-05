@@ -7,22 +7,20 @@ public class Patient {
 
     private long id;
     private String name;
+    private MedicalFile medicalFile;
 
-    private MedicalFile medicalFile () {
+    @OneToOne(mappedBy = "medicalFile")
+    public MedicalFile medicalFile() {
         return medicalFile();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="PATIENT_ID")
     public long getId() {
         return id;
     }
 
-
-
-
-    @Column(name="NAME")
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
@@ -31,13 +29,15 @@ public class Patient {
         this.name = name;
     }
 
-    @Column(name="PATIENT_MEDICAL_FILE")
     public void addMedicalFile(MedicalFile mf) {
-
+        medicalFile = mf;
         mf.setPatient(this);
     }
+
     public void removeMedicalFile() {
+        if (medicalFile != null) {
             medicalFile().setPatient(null);
+            medicalFile = null;
         }
     }
-
+}

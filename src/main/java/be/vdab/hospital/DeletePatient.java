@@ -14,8 +14,7 @@ public class DeletePatient {
             em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
 
-
-            Patient patient = em.find(Patient.class, 1L);
+            Patient patient = em.getReference(Patient.class, 1L);
             tx.begin();
             em.remove(patient);
             tx.commit();

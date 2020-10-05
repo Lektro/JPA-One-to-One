@@ -11,7 +11,7 @@ public class MedicalFile {
     private float height;
     private float weight;
 
-    @OneToOne(mappedBy = "medicalFile",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "medicalFile",cascade ={CascadeType.REMOVE})
     private Patient patient;
 
     public Patient getPatient() {

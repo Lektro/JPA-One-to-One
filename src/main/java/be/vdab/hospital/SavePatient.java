@@ -17,11 +17,8 @@ public class SavePatient {
             tx.begin();
 
             Patient patient = new Patient();
-
             patient.setName("Kevin van der Kruk");
-
             MedicalFile medicalFile = new MedicalFile();
-
             patient.addMedicalFile(medicalFile);
             medicalFile.setHeight(1.72F);
             medicalFile.setWeight(59.0F);

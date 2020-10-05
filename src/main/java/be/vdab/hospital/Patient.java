@@ -4,27 +4,25 @@ import javax.persistence.*;
 
 @Entity
 public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private long id;
 
-    @Column(name="NAME")
+    private long id;
     private String name;
 
-    @Column(name="MEDICALFILE")
     private MedicalFile medicalFile () {
         return medicalFile();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="PATIENT_ID")
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
+
+
+    @Column(name="NAME")
     public String getName() {
         return name;
     }
@@ -33,6 +31,7 @@ public class Patient {
         this.name = name;
     }
 
+    @Column(name="PATIENT_MEDICAL_FILE")
     public void addMedicalFile(MedicalFile mf) {
 
         mf.setPatient(this);

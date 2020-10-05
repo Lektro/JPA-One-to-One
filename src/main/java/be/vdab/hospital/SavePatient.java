@@ -18,7 +18,6 @@ public class SavePatient {
 
             Patient patient = new Patient();
             MedicalFile medicalFile = new MedicalFile();
-            patient.setId(1L);
             patient.setName("Kevin van der Kruk");
             patient.addMedicalFile(medicalFile);
             medicalFile.setHeight(172);

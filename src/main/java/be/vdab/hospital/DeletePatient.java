@@ -10,7 +10,7 @@ public class DeletePatient {
         EntityManagerFactory emf = null;
         EntityManager em = null;
         try {
-            emf = Persistence.createEntityManagerFactory("read");
+            emf = Persistence.createEntityManagerFactory("create");
             em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
 

@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity
 public class Patient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
@@ -35,6 +34,7 @@ public class Patient {
     }
 
     public void addMedicalFile(MedicalFile mf) {
+
         mf.setPatient(this);
     }
     public void removeMedicalFile() {

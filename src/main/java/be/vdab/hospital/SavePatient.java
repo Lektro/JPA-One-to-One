@@ -24,6 +24,9 @@ public class SavePatient {
             medicalFile.setHeight(172);
             medicalFile.setWeight(59);
             medicalFile.setPatient(patient);
+            em.persist(patient);
+            em.persist(medicalFile);
+            tx.commit();
             System.out.println("Patient Saved");
 
         } finally {
